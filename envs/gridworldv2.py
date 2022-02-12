@@ -61,16 +61,15 @@ class GridworldV2Env(gym.Env):
         return self.state
     
     def get_next_state(self, current_position, action):
-
+        
         next_state = self.index_to_coordinate_map[str(current_position)].copy()
-
         if action == 0 and next_state[0] != 0 and next_state != [2, 1]:
             next_state[0] -= 1
-        elif action == 1 and next_state[0] != 3 and next_state != [1, 0]:
+        elif action == 1 and next_state[1] != 3 and next_state != [1, 0]:
             next_state[1] += 1
         elif action == 2 and next_state[0] != 2 and next_state != [0, 1]:
             next_state[0] += 1
-        elif action == 3 and next_state[0] != 0 and next_state != [1, 2]:
+        elif action == 3 and next_state[1] != 0 and next_state != [1, 2]:
             next_state[1] -= 1
         else:
             pass
@@ -101,9 +100,5 @@ class GridworldV2Env(gym.Env):
         self.state = next_state 
         return next_state, reward, self.done
         
-
-    def step(self, ):
-        pass
-
 
     

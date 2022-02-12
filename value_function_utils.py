@@ -72,13 +72,32 @@ def visualize_maze_values(q_table, env, isMaze=True, arrow=True):
 
 def visualize_grid_state_values(grid_state_values):
     """Visualizes the state value function for the grid"""
-    plt.figure(figsize=(10, 5))
+    state_value = grid_state_values.reshape((3, 4))
+    state_value_positions = [
+        (0.15, 0.15),
+        (1.15, 0.15),
+        (2.15, 0.15),
+        (3.15, 0.15),
+        (0.15, 1.15),
+        (1.15, 1.15),
+        (2.15, 1.15),
+        (3.15, 1.15),
+        (0.15, 2.15),
+        (1.15, 2.15),
+        (2.15, 2.15),
+        (3.15, 2.15)
+    ]
+    plt.figure(figsize=(12, 5))
     plt.imshow(
         grid_state_values,
-        cmap="hot",
+        cmap="Greens",
         interpolation="nearest"
     )
+    plt.colorbar()
+    for i, (xi, yi) in enumerate(state_value_positions):
+        plt.text(xi, yi, round(state_value.flatten()[i], 2), size=11, color="r")
     plt.show()
+
 
 
 def visualize_grid_action_values(grid_action_values):
