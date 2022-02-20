@@ -170,7 +170,7 @@ def visualize_grid_action_values(grid_action_values):
         top=top,
         bottom=bottom,
         ax=ax,
-        triplot={"color": "k", "lw": 1},
+        triplotkw={"color": "k", "lw": 1},
         tripcolorkw={"cmap": "rainbow_r"}
     )
 
