@@ -1,6 +1,8 @@
 # Monte-carlo prediction and control
 
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from envs.gridworldv2 import GridworldV2Env
 from value_function_utils import visualize_grid_action_values, visualize_grid_state_values
 
@@ -93,10 +95,11 @@ def mc_control(env, max_episodes):
 
             next_state, reward, done = env.step(action)
             trajectory.append((state, action ,reward))
+            state = next_state
 
         for step in reversed(trajectory):
             g_t = gamma * g_t + step[2]
-            returns[str(step[0]) + ", " + str(step[1])]
+            returns[str(step[0]) + ", " + str(step[1])] = g_t
             grid_state_action_values[step[0]][step[1]] = np.mean(
                 returns[str(step[0])+", "+str(step[1])]
             )
