@@ -160,7 +160,7 @@ def visualize_grid_action_values(grid_action_values):
         bottom,
         ax=ax,
         triplotkw={"color": "k", "lw": 1},
-        tripcolorkw={"cmap": "rainbow_r"},
+        tripcolorkw={"cmap": "bwr"},
     )
 
     ax.margins(0)
@@ -169,13 +169,13 @@ def visualize_grid_action_values(grid_action_values):
     fig.colorbar(tripcolor)
 
     for i, (xi, yi) in enumerate(top_value_positions):
-        plt.text(xi, yi, round(top.flatten()[i], 2), size=11, color="w")
+        plt.text(xi, yi, round(top.flatten()[i], 2), size=11, color="k")
     for i, (xi, yi) in enumerate(right_value_positions):
-        plt.text(xi, yi, round(right.flatten()[i], 2), size=11, color="w")
+        plt.text(xi, yi, round(right.flatten()[i], 2), size=11, color="k")
     for i, (xi, yi) in enumerate(left_value_positions):
-        plt.text(xi, yi, round(left.flatten()[i], 2), size=11, color="w")
+        plt.text(xi, yi, round(left.flatten()[i], 2), size=11, color="k")
     for i, (xi, yi) in enumerate(bottom_value_positions):
-        plt.text(xi, yi, round(bottom.flatten()[i], 2), size=11, color="w")
+        plt.text(xi, yi, round(bottom.flatten()[i], 2), size=11, color="k")
 
     plt.show()
 
