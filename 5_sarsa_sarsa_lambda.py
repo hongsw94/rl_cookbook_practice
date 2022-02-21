@@ -34,12 +34,14 @@ def sarsa(env: GridworldV2Env, max_episodes):
 
 
 def greedy_policy(q_vals, epsilon=0.1):
+    """Epsilon Greedy Policy"""
     if random.random() >= epsilon:
         return np.argmax(q_vals)
     else:
         return random.randint(0, env.action_space.n-1)
 
 def decay(epsilon):
+    """Decaying Epsilon"""
     max_epsilon = 1
     min_epsilon = 0.01
     decay_factor = 0.99
